@@ -3,7 +3,7 @@ import { View, Text, FlatList, StyleSheet, Alert, TouchableOpacity } from 'react
 import axios from 'axios';
 import BotaoCustomizado from '../components/BotaoCustomizado';
 
-// 🚨 GABRIEL: COLOQUE O SEU IP AQUI TAMBÉM:
+
 const IP_DO_SEU_PC = '192.168.0.2';
 
 export default function CheckinsScreen() {

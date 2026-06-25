@@ -7,13 +7,12 @@ import * as Location from 'expo-location';
 import axios from 'axios';
 import BotaoCustomizado from '../components/BotaoCustomizado';
 
-// =========================================================
-// 🚨 GABRIEL: COLOQUE O SEU IP DO CMD AQUI:
+
 const IP_DO_SEU_PC = '192.168.0.2'; 
 
-// LINK OFICIAL DA API DO RECIFE:
+
 const URL_API_RECIFE = 'https://dados.recife.pe.gov.br/api/3/action/datastore_search?resource_id=db9cfac3-a78b-43d5-9f5e-0fb26220364e';
-// =========================================================
+
 
 export default function AcademiasScreen({ navigation }) {
   const [academias, setAcademias] = useState([]);
@@ -82,16 +81,15 @@ export default function AcademiasScreen({ navigation }) {
     return metros < 1000 ? `${Math.round(metros)} m` : `${(metros / 1000).toFixed(1)} km`;
   };
 
-  // =========================================================
-  // FUNÇÃO DE ROTA (O SEU DEEP LINK PRO GOOGLE MAPS)
-  // =========================================================
+
+  // FUNÇÃO DE ROTA (GOOGLE MAPS)
+
   const abrirGoogleMaps = (latDestino, lonDestino, modoTransporte) => {
     if (!localizacao) {
       Alert.alert('Calma aí', 'Ainda estamos triangulando seu GPS...');
       return;
     }
 
-    // travelmode=walking ou travelmode=driving
     const url = `https://www.google.com/maps/dir/?api=1&origin=${localizacao.latitude},${localizacao.longitude}&destination=${latDestino},${lonDestino}&travelmode=${modoTransporte}`;
     
     Linking.openURL(url).catch(() => {
